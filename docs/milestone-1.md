@@ -1,10 +1,13 @@
 # MUSES
 **Team Name**: son.i.ya
+
 **Application Name**: MUSES
 
 ## Team Overview
 **Creator**: Soniya Gaikwad
+
 **Github Username**: @soniyagaikwad
+
 **Github Link**: https://github.com/soniyagaikwad
 
 ## Application Idea
