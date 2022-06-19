@@ -19,3 +19,6 @@ As seen on the HTML page, there are four main sections:
 4. Below the description are four sets of boxes representing what the user will select, such as the genre, song vibe, and decade.
 
 Based on the user's selections, the recommended song list and the like and dislike buttons will pop up. 
+
+## Application Demo
+[MUSES Application Demo](https://github.com/soniyagaikwad/cs326-project-son.i.ya/raw/35c7fca8d2f60b69189813959118e7dc92b73ccb/docs/applicationdemovideo.mp4)
