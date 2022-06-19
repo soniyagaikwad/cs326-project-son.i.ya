@@ -1,0 +1,130 @@
+body {
+    background-color: #6B9080;
+    color: #F6FFF8;
+}
+
+.body-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    row-gap: 20px;
+}
+
+#title, #description, #instruction, #genre, #song-vibe, #decade {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    justify-self: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 200px 200px;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 15%; */
+    font-size: xx-large;
+    row-gap: 5px;
+    column-gap: 5px;
+    justify-content: center, stretch;
+}
+
+#genre1 {
+    background-color: #A4C3B2;
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 10px;
+}
+
+#genre2 {
+    background-color: #CCE3DE;
+    color: white;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-radius: 10px;
+}
+
+#genre3 {
+    background-color: #EAF4F4;
+    color: #A4C3B2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 10px;
+}
+
+
+#genre4 {
+    background-color: #F6FFF8;
+    color: #A4C3B2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-radius: 10px;
+}
+
+#song-vibe1 {
+    background-color: #A4C3B2;
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 10px;
+}
+
+#song-vibe2 {
+    background-color: #CCE3DE;
+    color: white;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-radius: 10px;
+}
+
+#song-vibe3 {
+    background-color: #EAF4F4;
+    color: #A4C3B2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 10px;
+}
+
+
+#song-vibe4 {
+    background-color: #F6FFF8;
+    color: #A4C3B2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-radius: 10px;
+}
+
+#decade1 {
+    background-color: #A4C3B2;
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 10px;
+}
+
+#decade2 {
+    background-color: #CCE3DE;
+    color: white;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-radius: 10px;
+}
+
+#decade3 {
+    background-color: #EAF4F4;
+    color: #A4C3B2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 10px;
+}
+
+
+#decade4 {
+    background-color: #F6FFF8;
+    color: #A4C3B2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-radius: 10px;
+}
