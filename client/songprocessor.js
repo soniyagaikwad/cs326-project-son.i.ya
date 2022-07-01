@@ -17,7 +17,7 @@ class SongProcessor {
         this.songs = data;
     }
 
-    render(element) {
+    render(element, like, dislike) {
         let html = '<h4>Recommended Song List: </h4>';
         html += '<table>';
         let firstFiveSongs = this.songs.slice(0, 5);
@@ -37,7 +37,12 @@ class SongProcessor {
         if (firstFiveSongs.length !== 5) {
             html += "we're updating our recommendations all the time, so stay tuned for more recommendations that fit your interests!";
         }
+
         element.innerHTML = html;
+
+        like.innerText = "like";
+
+        dislike.innerText = "dislike";
     }
 }
 
