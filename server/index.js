@@ -1,5 +1,5 @@
 import chalkAnimation from 'chalk-animation';
-// import { database } from './database.js';
+import { database } from './database.js';
 // Import Morgan and Express
 import express from 'express';
 import logger from 'morgan';
@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use('/', express.static('client'));
 
-// Implement the /wordScore endpoint
+// implementation for starting up
 app.get('/hello', async (request, response) => {
     const options = request.body;
     response.status(200).json({ 'status': 'success' });
@@ -49,7 +49,40 @@ app.post('/selections', async (request, response) => {
     const options = request.body;
     // await database.saveWordScore(options.name, options.word, options.score);
     console.log("User selected the following: " + options.genre + ", " + options.songvibe + ", and " + options.decade + "!");
-    response.status(200).json({ 'status': 'success' });
+    let songRecommendations = await database.songsBasedOnSelections(options.genre, options.songvibe, options.decade);
+    response.status(200).json(songRecommendations);
+});
+
+// implementation for adding a song
+app.post('/addSong', async (request, response) => {
+    const options = request.body;
+    let createdSong = await database.createSong(options.song, options.artist, options.genre, options.songvibe, options.decade);
+    console.log("added the song: " + options.song);
+    response.status(200).json(createdSong);
+});
+
+// implementation for reading a song
+app.get('/readSong', async (request, response) => {
+    const options = request.body;
+    let readingSong = await database.readSong(options.song);
+    console.log("song description: " + options.song + ", " + options.artist + ", " + options.genre + ", " + options.songvibe + ", " + options.decade);
+    response.status(200).json(readingSong);
+});
+
+// implementation for updating a song
+app.post('/updateSong', async (request, response) => {
+    const options = request.body;
+    let updatedSong = await database.updateSong(options.song, options.artist, options.genre, options.songvibe, options.decade);
+    console.log("updated the song: " + options.song);
+    response.status(200).json(updatedSong);
+});
+
+// implementation for deleting a song
+app.delete('/deleteSong', async (request, response) => {
+    const options = request.body;
+    let deletedSong = await database.readSong(options.song);
+    console.log("deleted song: " + options.song);
+    response.status(200).json(deletedSong);
 });
 
 // This matches all routes that are not defined.
