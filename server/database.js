@@ -32,7 +32,7 @@ class Database {
 
     async init() {
         console.log("songs table creation - started");
-        const queryText = `CREATE TABLE if not exists songs ( id SERIAL PRIMARY KEY, song VARCHAR(50), genre VARCHAR(50), songvibe VARCHAR(50), decade VARCHAR(50));`;
+        const queryText = `CREATE TABLE if not exists songs ( id SERIAL PRIMARY KEY, song VARCHAR(100), artist VARCHAR(50), genre VARCHAR(50), songvibe VARCHAR(50), decade VARCHAR(50));`;
         const res = await this.client.query(queryText);
         console.log("songs table creation - done");
     }
@@ -50,7 +50,7 @@ class Database {
      *
      * @returns [{song: string, artist: string, genre: string, songvibe: string, decade: string}...]
      */
-    async songsBasedOnSelectionsDATABASE(genre, songvibe, decade) {
+    async songsBasedOnSelections(genre, songvibe, decade) {
         const queryText = 'SELECT song, genre, songvibe, decade FROM songs';
         const res = await this.client.query(queryText);
         let allSongs = JSON.stringify(res.rows);
@@ -66,10 +66,18 @@ class Database {
         return songsWithSelections;
     }
 
-    async songsBasedOnSelections(genre, songvibe, decade) {
-        const songsWithSelections = [{ "song": "you right", "artist": "doja cat", "genre": "pop", "songvibe": "happy", "decade": "now" }, { "song": "glimpse of us", "artist": "joji", "genre": "pop", "songvibe": "sad", "decade": "now" }];
-        return songsWithSelections;
+    async getAllSongs() {
+        const queryText = 'SELECT song, genre, songvibe, decade FROM songs';
+        const res = await this.client.query(queryText);
+        let allSongs = JSON.stringify(res.rows);
+        allSongs = JSON.parse(allSongs);
+        return allSongs;
     }
+
+    // async songsBasedOnSelectionsSTATIC(genre, songvibe, decade) {
+    //     const songsWithSelections = [{ "song": "you right", "artist": "doja cat", "genre": "pop", "songvibe": "happy", "decade": "now" }, { "song": "glimpse of us", "artist": "joji", "genre": "pop", "songvibe": "sad", "decade": "now" }];
+    //     return songsWithSelections;
+    // }
 
     // create (C)
     async createSong(song, artist, genre, songvibe, decade) {
@@ -89,7 +97,7 @@ class Database {
 
     // update (U)
     async updateSong(song, artist, genre, songvibe, decade) {
-        const queryText = 'UPDATE INTO songs (song, artist, genre, songvibe, decade) VALUES ($1, $2, $3, $4, $5) WHERE song = $1';
+        const queryText = 'UPDATE songs set song = $1, artist = $2, genre = $3, songvibe = $4, decade = $5 WHERE song = $1';
         const res = await this.client.query(queryText, [song, artist, genre, songvibe, decade]);
         let updatedSong = JSON.stringify(res.rows);
         updatedSong = JSON.parse(updatedSong);
@@ -98,7 +106,7 @@ class Database {
 
     // delete (D)
     async deleteSong(song) {
-        const queryText = 'DELETE song, artist, genre, songvibe, decade FROM songs WHERE song = $1';
+        const queryText = 'DELETE FROM songs WHERE song = $1';
         const res = await this.client.query(queryText, [song]);
         let deletedSong = JSON.stringify(res.rows);
         deletedSong = JSON.parse(deletedSong);

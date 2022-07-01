@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use('/', express.static('client'));
 
+
+
 // implementation for starting up
 app.get('/hello', async (request, response) => {
     const options = request.body;
@@ -53,6 +55,13 @@ app.post('/selections', async (request, response) => {
     response.status(200).json(songRecommendations);
 });
 
+// implementation for getting all songs
+app.post('/getAllSongs', async (request, response) => {
+    const options = request.body;
+    let songsList = await database.getAllSongs();
+    response.status(200).json(songsList);
+});
+
 // implementation for adding a song
 app.post('/addSong', async (request, response) => {
     const options = request.body;
@@ -62,10 +71,10 @@ app.post('/addSong', async (request, response) => {
 });
 
 // implementation for reading a song
-app.get('/readSong', async (request, response) => {
+app.post('/readSong', async (request, response) => {
     const options = request.body;
     let readingSong = await database.readSong(options.song);
-    console.log("song description: " + options.song + ", " + options.artist + ", " + options.genre + ", " + options.songvibe + ", " + options.decade);
+    console.log("song description: " + readingSong.song + ", " + readingSong.artist + ", " + readingSong.genre + ", " + readingSong.songvibe + ", " + readingSong.decade);
     response.status(200).json(readingSong);
 });
 
@@ -90,7 +99,9 @@ app.all('*', async (request, response) => {
     response.status(404).send(`Not found: ${request.path}`);
 });
 
-// await database.connect();
+console.log("BEFORE DB CONNECT");
+await database.connect();
+console.log("AFTER DB CONNECT");
 
 // Start the server.
 app.listen(port, () => {
