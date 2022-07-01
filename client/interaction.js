@@ -1,3 +1,5 @@
+import { songProcessorObj } from './songprocessor.js';
+
 console.log("registering event listeners");
 
 let chosenGenre = "";
@@ -14,12 +16,16 @@ function renderSelections() {
 function renderRecommendations() {
     let recommendations = document.getElementById("recommendations");
     if (chosenGenre !== "" && chosenSongVibe !== "" && chosenDecade !== "") {
-        recommendations.innerText = "Recommended Song List: \n 1. SONG #1 \n 2. SONG #2 \n 3. SONG #3 \n 4. SONG #4 \n 5. SONG #5";
+
+        songProcessorObj.getSongBySelections(chosenGenre, chosenSongVibe, chosenDecade);
+        songProcessorObj.render(recommendations);
+
+        // recommendations.innerText = "Recommended Song List: \n 1. SONG #1 \n 2. SONG #2 \n 3. SONG #3 \n 4. SONG #4 \n 5. SONG #5";
         
-        const like = document.createElement('div');
-        like.classList.add('thumbsup');
-        like.innerText = "thumbs up     -----     thumbs down";
-        recommendations.appendChild(like);
+        // const like = document.createElement('div');
+        // like.classList.add('thumbsup');
+        // like.innerText = "thumbs up     -----     thumbs down";
+        // recommendations.appendChild(like);
     }
 }
 

@@ -4,8 +4,8 @@ class SongProcessor {
     }
 
     // Save the word score to the server
-    async getSongBySelections(genre, word, score) {
-        let songSelectionObj = { 'genre': genre, 'word': word, 'score': score };
+    async getSongBySelections(genre, songvibe, decade) {
+        let songSelectionObj = { 'genre': genre, 'songvibe': songvibe, 'decade': decade };
         const response = await fetch(`/selections`, {
             method: 'POST',
             headers: {
@@ -33,3 +33,5 @@ class SongProcessor {
         element.innerHTML = html;
     }
 }
+
+export const songProcessorObj = new SongProcessor();
