@@ -17,10 +17,10 @@ class SongProcessor {
         this.songs = data;
     }
 
-    render(element, like, dislike) {
+    render(element, like, dislike, buttonClicks) {
         let html = '<h4>Recommended Song List: </h4>';
         html += '<table>';
-        let firstFiveSongs = this.songs.slice(0, 5);
+        let firstFiveSongs = this.songs.slice(buttonClicks * 5, (buttonClicks + 1) * 5);
         let by = "by";
         for (let i = 0; i < firstFiveSongs.length; ++i) {
             let currentSongName = firstFiveSongs[i]['song'];

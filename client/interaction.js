@@ -5,7 +5,7 @@ console.log("registering event listeners");
 let chosenGenre = "";
 let chosenSongVibe = "";
 let chosenDecade = "";
-let songIndex = 0;
+let dislikeButtonClicks = 0;
 
 // let songProcessorObj = new SongProcessor();
 
@@ -25,7 +25,7 @@ async function renderRecommendations() {
         console.log("QUERYING BACKEND");
 
         await songProcessorObj.getSongBySelections(chosenGenre, chosenSongVibe, chosenDecade);
-        songProcessorObj.render(recommendations, like, dislike);
+        songProcessorObj.render(recommendations, like, dislike, dislikeButtonClicks);
 
         // recommendations.innerText = "Recommended Song List: \n 1. SONG #1 \n 2. SONG #2 \n 3. SONG #3 \n 4. SONG #4 \n 5. SONG #5";
         
@@ -150,5 +150,8 @@ like.addEventListener('click', function () {
 let dislike = document.getElementById("dislike");
 dislike.addEventListener('click', function () {
     console.log("disliked the songs");
-
+    dislikeButtonClicks += 1;
+    console.log("dislike button clicked: " + dislikeButtonClicks);
+    renderSelections();
+    renderRecommendations();
 });
