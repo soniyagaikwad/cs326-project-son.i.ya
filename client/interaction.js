@@ -60,6 +60,9 @@ let randomGenre = document.getElementById("genre4");
 randomGenre.addEventListener('click', function () {
     chosenGenre = "random";
     console.log("chosen genre: " + chosenGenre);
+    let randomIndex = Math.floor(Math.random() * 3);
+    let genres = ["pop", "rap", "alternative"];
+    chosenGenre = genres[randomIndex];
     renderSelections();
     renderRecommendations();
 });
@@ -92,6 +95,9 @@ let randomSongVibe = document.getElementById("song-vibe4");
 randomSongVibe.addEventListener('click', function () {
     chosenSongVibe = "random";
     console.log("chosen song vibe: " + chosenSongVibe);
+    let randomIndex = Math.floor(Math.random() * 3);
+    let songvibes = ["happy", "sad", "chill"];
+    chosenSongVibe = songvibes[randomIndex];
     renderSelections();
     renderRecommendations();
 });
@@ -124,6 +130,9 @@ let randomYear = document.getElementById("decade4");
 randomYear.addEventListener('click', function () {
     chosenDecade = "random";
     console.log("chosen decade: " + chosenDecade);
+    let randomIndex = Math.floor(Math.random() * 3);
+    let decades = ["now", "2000s", "2010s"];
+    chosenDecade = decades[randomIndex];
     renderSelections();
     renderRecommendations();
 });

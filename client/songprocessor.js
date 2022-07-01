@@ -21,17 +21,22 @@ class SongProcessor {
         let html = '<h4>Recommended Song List: </h4>';
         html += '<table>';
         let firstFiveSongs = this.songs.slice(0, 5);
+        let by = "by";
         for (let i = 0; i < firstFiveSongs.length; ++i) {
             let currentSongName = firstFiveSongs[i]['song'];
             let currentSongArtist = firstFiveSongs[i]['artist'];
             html += `
           <tr>
             <td>${currentSongName}</td>
+            <td>${by}</td>
             <td>${currentSongArtist}</td>
           </tr>
         `;
         }
         html += '</table>';
+        if (firstFiveSongs.length !== 5) {
+            html += "we're updating our recommendations all the time, so stay tuned for more recommendations that fit your interests!";
+        }
         element.innerHTML = html;
     }
 }
