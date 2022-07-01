@@ -51,7 +51,7 @@ class Database {
      * @returns [{song: string, artist: string, genre: string, songvibe: string, decade: string}...]
      */
     async songsBasedOnSelections(genre, songvibe, decade) {
-        const queryText = 'SELECT song, genre, songvibe, decade FROM songs';
+        const queryText = 'SELECT song, artist, genre, songvibe, decade FROM songs';
         const res = await this.client.query(queryText);
         let allSongs = JSON.stringify(res.rows);
         allSongs = JSON.parse(allSongs);
@@ -67,7 +67,7 @@ class Database {
     }
 
     async getAllSongs() {
-        const queryText = 'SELECT song, genre, songvibe, decade FROM songs';
+        const queryText = 'SELECT song, artist, genre, songvibe, decade FROM songs';
         const res = await this.client.query(queryText);
         let allSongs = JSON.stringify(res.rows);
         allSongs = JSON.parse(allSongs);

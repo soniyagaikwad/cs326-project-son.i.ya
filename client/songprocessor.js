@@ -22,10 +22,12 @@ class SongProcessor {
         html += '<table>';
         let firstFiveSongs = this.songs.slice(0, 5);
         for (let i = 0; i < firstFiveSongs.length; ++i) {
+            let currentSongName = firstFiveSongs[i]['song'];
+            let currentSongArtist = firstFiveSongs[i]['artist'];
             html += `
           <tr>
-            <td>${firstFiveSongs[i].name}</td>
-            <td>${firstFiveSongs[i].artist}</td>
+            <td>${currentSongName}</td>
+            <td>${currentSongArtist}</td>
           </tr>
         `;
         }
@@ -34,4 +36,6 @@ class SongProcessor {
     }
 }
 
-export const songProcessorObj = new SongProcessor();
+const songProcessorObj = new SongProcessor();
+
+export { songProcessorObj };

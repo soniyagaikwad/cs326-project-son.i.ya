@@ -6,6 +6,9 @@ let chosenGenre = "";
 let chosenSongVibe = "";
 let chosenDecade = "";
 
+// let songProcessorObj = new SongProcessor();
+
+// const songProcessorObj = require('songprocessor');
 
 function renderSelections() {
     let selection = document.getElementById("selections");
