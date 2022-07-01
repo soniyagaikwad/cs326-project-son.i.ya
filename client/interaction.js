@@ -16,11 +16,14 @@ function renderSelections() {
     selection.innerText = "You chose: " + chosenGenre + " (genre), " + chosenSongVibe + " (song vibe), " + chosenDecade + " (decade)";
 }
 
-function renderRecommendations() {
+async function renderRecommendations() {
     let recommendations = document.getElementById("recommendations");
+    console.log("SELECTIONS RIGHT NOW: " + chosenGenre + ",  " + chosenSongVibe + ", " + chosenDecade);
     if (chosenGenre !== "" && chosenSongVibe !== "" && chosenDecade !== "") {
 
-        songProcessorObj.getSongBySelections(chosenGenre, chosenSongVibe, chosenDecade);
+        console.log("QUERYING BACKEND");
+
+        await songProcessorObj.getSongBySelections(chosenGenre, chosenSongVibe, chosenDecade);
         songProcessorObj.render(recommendations);
 
         // recommendations.innerText = "Recommended Song List: \n 1. SONG #1 \n 2. SONG #2 \n 3. SONG #3 \n 4. SONG #4 \n 5. SONG #5";
