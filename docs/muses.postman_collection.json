@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "194bbe66-2c53-4867-9657-1d10332477ac",
+		"name": "MUSES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21584355"
+	},
+	"item": [
+		{
+			"name": "/hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/genre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"genre\": \"alternative\",\n    \"songvibe\": \"chill\",\n    \"decade\": \"now\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/genre",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"genre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/songvibe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"genre\": \"alternative\",\n    \"songvibe\": \"chill\",\n    \"decade\": \"now\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/songvibe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"songvibe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/decade",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"genre\": \"alternative\",\n    \"songvibe\": \"chill\",\n    \"decade\": \"now\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/decade",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"decade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/selections",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"genre\": \"rap\",\n    \"songvibe\": \"sad\",\n    \"decade\": \"2010s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/selections",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"selections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/getAllSongs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/getAllSongs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getAllSongs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/readSong",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": \"only\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/readSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"readSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/updateSong",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": \"only\",\n    \"artist\": \"ry x\",\n    \"genre\": \"alternative\",\n    \"songvibe\": \"chill\",\n    \"decade\": \"2010s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/updateSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"updateSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/deleteSong",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/deleteSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deleteSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/addSong 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": \"milk & honey\",\n    \"artist\": \"billie marten\",\n    \"genre\": \"pop\",\n    \"songvibe\": \"sad\",\n    \"decade\": \"2010s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/addSong 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": \"feeling whitney\",\n    \"artist\": \"post malone\",\n    \"genre\": \"rap\",\n    \"songvibe\": \"sad\",\n    \"decade\": \"2010s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/addSong 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": \"only\",\n    \"artist\": \"ry x\",\n    \"genre\": \"alternative\",\n    \"songvibe\": \"sad\",\n    \"decade\": \"2010s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/addSong 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": \"sex, drugs, etc.\",\n    \"artist\": \"beach weather\",\n    \"genre\": \"alternative\",\n    \"songvibe\": \"happy\",\n    \"decade\": \"2010s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/addSong 5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": \"teenage fever\",\n    \"artist\": \"drake\",\n    \"genre\": \"rap\",\n    \"songvibe\": \"chill\",\n    \"decade\": \"2010s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/addSong 6",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": \"everybody dies in their nightmares\",\n    \"artist\": \"xxxtentacion\",\n    \"genre\": \"rap\",\n    \"songvibe\": \"chill\",\n    \"decade\": \"2010s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/addSong bulk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"song\": \"{{song}}\",\n    \"artist\": \"{{artist}}\",\n    \"genre\": \"{{genre}}\",\n    \"songvibe\": \"{{songvibe}}\",\n    \"decade\": \"{{decade}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addSong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addSong"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
