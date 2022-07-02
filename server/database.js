@@ -11,18 +11,9 @@ class Database {
     }
 
     async connect() {
-        // Create a new Pool. The Pool manages a set of connections to the database.
-        // It will keep track of unused connections, and reuse them when new queries
-        // are needed. The constructor requires a database URL to make the
-        // connection. You can find the URL of your database by looking in Heroku
-        // or you can run the following command in your terminal:
-        //
-        //  heroku pg:credentials:url -a APP_NAME
-        //
-        // Replace APP_NAME with the name of your app in Heroku.
         this.pool = new Pool({
             connectionString: this.dburl,
-            ssl: { rejectUnauthorized: false }, // Required for Heroku connections
+            ssl: { rejectUnauthorized: false },
         });
 
         // Create the pool.
@@ -74,11 +65,6 @@ class Database {
         return allSongs;
     }
 
-    // async songsBasedOnSelectionsSTATIC(genre, songvibe, decade) {
-    //     const songsWithSelections = [{ "song": "you right", "artist": "doja cat", "genre": "pop", "songvibe": "happy", "decade": "now" }, { "song": "glimpse of us", "artist": "joji", "genre": "pop", "songvibe": "sad", "decade": "now" }];
-    //     return songsWithSelections;
-    // }
-
     // create (C)
     async createSong(song, artist, genre, songvibe, decade) {
         const queryText = 'INSERT INTO songs (song, artist, genre, songvibe, decade) VALUES ($1, $2, $3, $4, $5) RETURNING *';
@@ -97,7 +83,7 @@ class Database {
 
     // update (U)
     async updateSong(song, artist, genre, songvibe, decade) {
-        const queryText = 'UPDATE songs set song = $1, artist = $2, genre = $3, songvibe = $4, decade = $5 WHERE song = $1';
+        const queryText = 'UPDATE songs set song = $1, artist = $2, genre = $3, songvibe = $4, decade = $5 WHERE song = $1 RETURNING *';
         const res = await this.client.query(queryText, [song, artist, genre, songvibe, decade]);
         let updatedSong = JSON.stringify(res.rows);
         updatedSong = JSON.parse(updatedSong);
@@ -106,15 +92,12 @@ class Database {
 
     // delete (D)
     async deleteSong(song) {
-        const queryText = 'DELETE FROM songs WHERE song = $1';
+        const queryText = 'DELETE FROM songs WHERE song = $1 RETURNING *';
         const res = await this.client.query(queryText, [song]);
         let deletedSong = JSON.stringify(res.rows);
         deletedSong = JSON.parse(deletedSong);
         return deletedSong;
     }
-
-
-
 
 }
 

@@ -14,9 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use('/', express.static('client'));
 
-
-
-// implementation for starting up
+// implementation for testing rest endpoint and starting up
 app.get('/hello', async (request, response) => {
     const options = request.body;
     response.status(200).json({ 'status': 'success' });
@@ -25,7 +23,6 @@ app.get('/hello', async (request, response) => {
 // implementation for genre
 app.post('/genre', async (request, response) => {
     const options = request.body;
-    // await database.saveWordScore(options.name, options.word, options.score);
     console.log("User selected the " + options.genre + " genre!");
     response.status(200).json({ 'status': 'success' });
 });
@@ -33,7 +30,6 @@ app.post('/genre', async (request, response) => {
 // implementation for song-vibe
 app.post('/songvibe', async (request, response) => {
     const options = request.body;
-    // await database.saveWordScore(options.name, options.word, options.score);
     console.log("User selected the " + options.songvibe + " song vibe!");
     response.status(200).json({ 'status': 'success' });
 });
@@ -41,7 +37,6 @@ app.post('/songvibe', async (request, response) => {
 // implementation for decade
 app.post('/decade', async (request, response) => {
     const options = request.body;
-    // await database.saveWordScore(options.name, options.word, options.score);
     console.log("User selected the " + options.decade + " decade!");
     response.status(200).json({ 'status': 'success' });
 });
@@ -49,7 +44,6 @@ app.post('/decade', async (request, response) => {
 // implementation for selections
 app.post('/selections', async (request, response) => {
     const options = request.body;
-    // await database.saveWordScore(options.name, options.word, options.score);
     console.log("User selected the following: " + options.genre + ", " + options.songvibe + ", and " + options.decade + "!");
     let songRecommendations = await database.songsBasedOnSelections(options.genre, options.songvibe, options.decade);
     response.status(200).json(songRecommendations);

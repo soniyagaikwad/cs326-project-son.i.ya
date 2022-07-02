@@ -1,15 +1,9 @@
 import { songProcessorObj } from './songprocessor.js';
 
-console.log("registering event listeners");
-
 let chosenGenre = "";
 let chosenSongVibe = "";
 let chosenDecade = "";
 let dislikeButtonClicks = 0;
-
-// let songProcessorObj = new SongProcessor();
-
-// const songProcessorObj = require('songprocessor');
 
 function renderSelections() {
     let selection = document.getElementById("selections");
@@ -19,20 +13,10 @@ function renderSelections() {
 
 async function renderRecommendations() {
     let recommendations = document.getElementById("recommendations");
-    console.log("SELECTIONS RIGHT NOW: " + chosenGenre + ",  " + chosenSongVibe + ", " + chosenDecade);
+    console.log("current selections: " + chosenGenre + ",  " + chosenSongVibe + ", " + chosenDecade);
     if (chosenGenre !== "" && chosenSongVibe !== "" && chosenDecade !== "") {
-
-        console.log("QUERYING BACKEND");
-
         await songProcessorObj.getSongBySelections(chosenGenre, chosenSongVibe, chosenDecade);
         songProcessorObj.render(recommendations, like, dislike, dislikeButtonClicks);
-
-        // recommendations.innerText = "Recommended Song List: \n 1. SONG #1 \n 2. SONG #2 \n 3. SONG #3 \n 4. SONG #4 \n 5. SONG #5";
-        
-        // const like = document.createElement('div');
-        // like.classList.add('thumbsup');
-        // like.innerText = "thumbs up     -----     thumbs down";
-        // recommendations.appendChild(like);
     }
 }
 
@@ -151,7 +135,6 @@ let dislike = document.getElementById("dislike");
 dislike.addEventListener('click', function () {
     console.log("disliked the songs");
     dislikeButtonClicks += 1;
-    console.log("dislike button clicked: " + dislikeButtonClicks);
     renderSelections();
     renderRecommendations();
 });
